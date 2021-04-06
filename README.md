@@ -99,3 +99,33 @@ SELECT *
 FROM employees
 WHERE manager_id IS NOT NULL;
 -- IS NULL <> IS NOT NULL
+
+
+SELECT salary
+        salary/30 일급,
+        ROUND(salary/30,0) 적용결과0,
+        ROUND(salary/30,1) 적용결과1,
+        ROUND(salary/30, -1) 적용결과 MINUS1
+FROM employees;
+--반올림할 자리값이 0이면 소수 첫째 자리에서 반올림
+--반올림할 자리값이 -1이면정수 첫째자리에서 반올림
+
+SELECT salary
+        salary/30 일급,
+        TRUNC(salary/30,0) 적용결과0,
+        TRUNC(salary/30,1) 적용결과1,
+        TRUNC(salary/30, -1) 적용결과 MINUS1
+FROM employees;
+--절삭할 자리 값이 0이면 소수 첫째자리에서 절삭한다.
+-- 절삭할 자리 값이 1이면 소수 둘째자리를 의미
+
+
+SELECT hire_date,
+        ROUND(hire_date, 'MONTH') 적용결과M,
+        ROUND(hire_date, 'YEAR') 적용결과Y,
+        TRUNC(hire_date, 'MONTH') 적용결과M,
+        TRUNC(hire_date, 'YEAR') 적용결과Y
+FROM employees
+WHERE department_id BETWEEN 100 AND 106;
+
+--년월일
